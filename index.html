@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP 2132 Project</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="scripts/project.js" defer="defer"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1 id="top-header">COMP 2132 Project</h1>
+        </header>
+
+        <div id="dimmer"></div>
+
+        <main>
+            <div id="game-view">
+                <img src="images/hangman-0.png" alt="hangman 0" id="hangman-state">
+                <div id="letters"></div>
+            </div>
+        </main>
+
+        <div id="pop-up">
+            <button type="button" class="close-window-button">X</button>
+            <p id="game-end-message"></p>
+        </div>
+
+        <footer>
+            <p>COMP 2132</p>
+        </footer>
+    </div>
+</body>
+
+</html>
