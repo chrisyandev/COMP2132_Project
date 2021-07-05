@@ -75,7 +75,7 @@ main {
   border: 2px solid darkred;
   border-radius: 20px;
   box-shadow: 0 0 3px 1px;
-  height: 420px;
+  height: 500px;
   width: 500px;
   background-color: white;
   position: relative;
@@ -84,8 +84,18 @@ main {
 
 #hangman-state {
   display: block;
-  margin: 20px auto auto auto;
+  margin: 0 auto auto auto;
   height: 80%;
+}
+
+#word-display {
+  margin: 10px auto 20px auto;
+  text-align: center;
+}
+
+.letter-input {
+  display: inline-block;
+  margin: 0 5px;
 }
 
 #buttons {
