@@ -1,7 +1,9 @@
 body {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
   margin: auto;
   background-color: #383838;
+}
+body * {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .wrapper {
@@ -13,6 +15,7 @@ body {
   overflow: auto;
   padding: 10px;
   background-image: url("../images/background.png");
+  background-size: cover;
 }
 
 header {
@@ -49,24 +52,39 @@ header h1 {
   left: 50%;
   margin-top: -100px;
   margin-left: -250px;
-  background-color: #721817;
+  background-color: #2B4162;
   border: 2px solid #FA9F42;
   box-sizing: border-box;
   z-index: 100;
   display: none;
   opacity: 0.1;
+  align-content: center;
 }
 #pop-up p {
   color: white;
   font-size: 1.5em;
-  padding: 20px 40px;
+  padding: 0px 20px;
+  text-align: center;
 }
 
-.close-window-button {
+#play-again-button {
+  background-color: #721817;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.2em;
+  width: 140px;
+  height: 40px;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -70px;
+}
+#play-again-button:hover {
+  background-color: #0B6E4F;
+}
+#play-again-button:disabled {
+  background-color: gray;
 }
 
 #game-view {
@@ -111,19 +129,18 @@ header h1 {
 }
 
 .letter-button {
-  margin: 2px;
   background-color: #721817;
   color: white;
-  border: 1px solid white;
   border-radius: 5px;
+  border: none;
+  font-size: 1.2em;
+  margin: 2px;
   width: 40px;
   height: 40px;
 }
-
 .letter-button:hover {
   background-color: #0B6E4F;
 }
-
 .letter-button:disabled {
   background-color: gray;
 }

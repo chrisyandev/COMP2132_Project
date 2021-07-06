@@ -3,7 +3,7 @@ const hangmanStateEl = document.getElementById("hangman-state");
 const lettersEl = document.getElementById("letters");
 const hintEl = document.getElementById("hint");
 const wordDisplayEl = document.getElementById("word-display");
-const closeWindowButtonEl = document.querySelector("#pop-up .close-window-button");
+const playAgainButtonEl = document.getElementById("play-again-button");
 const popUpEl = document.getElementById("pop-up");
 const dimmerEl = document.getElementById("dimmer");
 const gameEndMessageEl = document.getElementById("game-end-message");
@@ -124,8 +124,6 @@ function initializeGame() {
     letterButtons.forEach(function(lb) {
         lb.enable();
     });
-
-    console.log(randomWord);
 }
 
 function pickRandomWord() {
@@ -187,7 +185,7 @@ function fadeIn(element, maxOpacity) {
     }, fadeInPopupTime);
 }
 
-closeWindowButtonEl.onclick = function() {
+playAgainButtonEl.onclick = function() {
     popUpEl.style.display = "none";
     dimmerEl.style.display = "none";
     popUpEl.style.opacity = "0.0";

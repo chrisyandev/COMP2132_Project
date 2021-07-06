@@ -11,10 +11,26 @@ $color-5-gray: #E0E0E2;
     justify-content: $horizontally;
 }
 
+@mixin buttons {
+    background-color: $color-1-red;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2em;
+    &:hover {
+        background-color: $color-4-green;
+    }
+    &:disabled {
+        background-color: gray;
+    }
+}
+
 body {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
     margin: auto;
     background-color: #383838;
+    * {
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+    }
 }
 
 .wrapper {
@@ -26,6 +42,7 @@ body {
     overflow: auto;
     padding: 10px;
     background-image: url("../images/background.png");
+    background-size: cover;
 }
 
 header {
@@ -62,24 +79,29 @@ header {
     left: 50%;
     margin-top: -100px;
     margin-left: -250px;
-    background-color: $color-1-red;
+    background-color: $color-3-blue;
     border: 2px solid $color-2-yellow;
     box-sizing: border-box;
     z-index: 100;
     display: none;
     opacity: 0.1;
+    align-content: center;
     p {
         color: white;
         font-size: 1.5em;
-        padding: 20px 40px;
+        padding: 0px 20px;
+        text-align: center;
     }
 }
 
-.close-window-button {
+#play-again-button {
+    @include buttons;
+    width: 140px;
+    height: 40px;
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 10px;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -70px;
 }
 
 #game-view {
@@ -124,19 +146,8 @@ header {
 }
 
 .letter-button {
+    @include buttons;
     margin: 2px;
-    background-color: $color-1-red;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
     width: 40px;
     height: 40px;
-}
-
-.letter-button:hover {
-    background-color: $color-4-green;
-}
-
-.letter-button:disabled {
-    background-color: gray;
 }
