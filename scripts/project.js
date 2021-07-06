@@ -26,6 +26,7 @@ let currentLetters = [];
 // Other variables
 let showPopupHandler;
 
+// Words the game can choose from and their respective hints
 const words = [
     {
         word: "apple",
@@ -69,6 +70,7 @@ const words = [
     }
 ]
 
+// A button with a letter
 class LetterButton {
     constructor(letter) {
         this.button = document.createElement("BUTTON");
@@ -85,6 +87,7 @@ class LetterButton {
     }
 }
 
+// Generates letters from A-Z and appends them as buttons
 for (let i = firstLetterAscii; i <= lastLetterAscii; i++) {
     const letterButton = new LetterButton(String.fromCharCode(i));
     letterButtons.push(letterButton);
@@ -98,6 +101,7 @@ for (let i = firstLetterAscii; i <= lastLetterAscii; i++) {
 
 initializeGame();
 
+// Resets variables, hangman image, and buttons
 function initializeGame() {
     const randomWord = pickRandomWord();
     currentWord = randomWord.word.toUpperCase();
@@ -126,11 +130,16 @@ function initializeGame() {
     });
 }
 
+// Picks a random word
 function pickRandomWord() {
     const randNum = Math.floor(Math.random() * words.length);
     return words[randNum];
 }
 
+/*
+Checks if word contains user's letter choice. If found,
+replaces the "_" with the letter wherever applicable.
+*/
 function checkForLetter(letter) {
     const key = letter.toUpperCase().charAt(0);
     let letterFound = false;
@@ -146,12 +155,14 @@ function checkForLetter(letter) {
     }
 }
 
+// Changes the hangman image
 function nextHangmanState() {
     hangmanState++;
     hangmanStateEl.src = `images/hangman-${hangmanState}.png`;
     hangmanStateEl.alt = `hangman ${hangmanState}`;
 }
 
+// Checks if game should be over
 function checkGameState() {
     if (lettersCorrect >= currentWord.length) {
         winGame();
@@ -160,18 +171,21 @@ function checkGameState() {
     }
 }
 
+// Called if the player wins the game
 function winGame() {
     gameEndMessageEl.textContent = `You Won! Word was ${currentWord}`;
     fadeIn(popUpEl, 1);
     fadeIn(dimmerEl, 0.5);
 }
 
+// Called if the player loses the game
 function loseGame() {
     gameEndMessageEl.textContent = `You Lost! Word was ${currentWord}`;
     fadeIn(popUpEl, 1);
     fadeIn(dimmerEl, 0.5);
 }
 
+// Fades in an element to a specified opacity
 function fadeIn(element, maxOpacity) {
     element.style.display = "block";
     const opacityHandler = setInterval(function() {
@@ -185,6 +199,7 @@ function fadeIn(element, maxOpacity) {
     }, fadeInPopupTime);
 }
 
+// Allows the player to play again
 playAgainButtonEl.onclick = function() {
     popUpEl.style.display = "none";
     dimmerEl.style.display = "none";
