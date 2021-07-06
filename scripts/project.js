@@ -1,6 +1,7 @@
 // HTML elements
 const hangmanStateEl = document.getElementById("hangman-state");
 const lettersEl = document.getElementById("letters");
+const hintEl = document.getElementById("hint");
 const wordDisplayEl = document.getElementById("word-display");
 const closeWindowButtonEl = document.querySelector("#pop-up .close-window-button");
 const popUpEl = document.getElementById("pop-up");
@@ -72,6 +73,7 @@ class LetterButton {
     constructor(letter) {
         this.button = document.createElement("BUTTON");
         this.button.innerHTML = letter;
+        this.button.className = "letter-button";
     }
 
     getButton() {
@@ -111,11 +113,13 @@ function initializeGame() {
     currentLetters = [];
     for (let i = 0; i < currentWord.length; i++) {
         const letter = document.createElement("SPAN");
-        letter.className = "letter-input";
+        letter.className = "letter-field";
         letter.textContent = "_";
         currentLetters.push(letter);
         wordDisplayEl.appendChild(letter);
     }
+
+    hintEl.innerHTML = `<p>Hint: ${currentHint}</p>`;
 
     letterButtons.forEach(function(lb) {
         lb.enable();

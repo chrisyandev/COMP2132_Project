@@ -1,31 +1,36 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   margin: auto;
   background-color: #383838;
 }
 
 .wrapper {
-  max-width: 800px;
+  max-width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
   background-color: white;
   position: relative;
+  overflow: auto;
+  padding: 10px;
+  background-image: url("../images/background.png");
 }
 
 header {
-  background-color: lightblue;
+  background-color: #2B4162;
   padding: 10px;
+  min-width: 1024px;
 }
-
-#top-header {
-  color: black;
+header h1 {
+  color: white;
   margin: 0;
   padding: 15px;
   font-size: 3em;
+  text-align: center;
 }
 
 #dimmer {
   background: black;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,12 +38,7 @@ header {
   height: 100%;
   z-index: 99;
   display: none;
-  opacity: 0.0;
-}
-
-main {
-  padding: 20px;
-  background-color: lightyellow;
+  opacity: 0.1;
 }
 
 #pop-up {
@@ -49,14 +49,13 @@ main {
   left: 50%;
   margin-top: -100px;
   margin-left: -250px;
-  background-color: darkred;
-  border: 2px solid yellow;
+  background-color: #721817;
+  border: 2px solid #FA9F42;
   box-sizing: border-box;
   z-index: 100;
   display: none;
-  opacity: 0.0;
+  opacity: 0.1;
 }
-
 #pop-up p {
   color: white;
   font-size: 1.5em;
@@ -71,49 +70,60 @@ main {
 }
 
 #game-view {
-  border: 2px solid darkred;
+  border: 2px solid #721817;
   border-radius: 20px;
   box-shadow: 0 0 3px 1px;
-  height: 500px;
-  width: 500px;
+  height: 800px;
+  width: 1024px;
   background-color: white;
   position: relative;
-  margin: auto;
+  margin: 40px auto;
 }
 
 #hangman-state {
   display: block;
   margin: 0 auto auto auto;
-  height: 80%;
+  height: 70%;
 }
 
 #word-display {
-  margin: 10px auto 20px auto;
+  margin: 0 auto 20px auto;
   text-align: center;
 }
 
-.letter-input {
+.letter-field {
   display: inline-block;
   margin: 0 5px;
+  font-size: 2em;
 }
 
-#buttons {
+#hint p {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#letters {
   display: flex;
-  position: absolute;
-  bottom: 0;
-  width: inherit;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 100px;
 }
 
-#buttons button {
-  margin: 20px 5px;
-  padding: 5px;
+.letter-button {
+  margin: 2px;
+  background-color: #721817;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
 }
 
-footer {
-  font-family: Georgia, serif;
-  border-top: 1px solid darkgray;
-  margin: 0px 20px;
-  padding-bottom: 10px;
-  background-color: white;
+.letter-button:hover {
+  background-color: #0B6E4F;
+}
+
+.letter-button:disabled {
+  background-color: gray;
 }
